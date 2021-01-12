@@ -4,10 +4,11 @@ ECE 4534: Embedded Systems
 
 Contributions:
 catkin_ws/src                         Spencer Buebel, Charles Kelley
-interconnectivity_milestone           Spencer Buebel, Charles Kelley, Michael Han, Christos
+interconnectivity_milestone           Spencer Buebel, Charles Kelley, Michael Han, Christos Roulidis
 mapping_component                     Spencer Buebel
 rover_component                       Charles Kelley
-pixy_component                        Michael Han
+PixyCam2 component                    Christos Roulidis
+Robotic Arm                           Michael Han
 
 
 For ros navigation:
