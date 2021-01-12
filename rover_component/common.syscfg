@@ -1,0 +1,143 @@
+/**
+ * These arguments were used when this file was generated. They will be automatically applied on subsequent loads
+ * via the GUI or CLI. Run CLI with '--help' for additional information on how to override these arguments.
+ * @cliArgs --board "/ti/boards/CC3220SF_LAUNCHXL" --product "simplelink_cc32xx_sdk@4_20_00_07"
+ * @versions {"data":"2020052512","timestamp":"2020052512","tool":"1.5.0+1397","templates":"2020052512"}
+ */
+
+/**
+ * Import the modules used in this configuration.
+ */
+const DriverLib      = scripting.addModule("/ti/devices/DriverLib");
+const Display        = scripting.addModule("/ti/display/Display", {}, false);
+const Display1       = Display.addInstance();
+const ADC            = scripting.addModule("/ti/drivers/ADC", {}, false);
+const ADC1           = ADC.addInstance();
+const Board          = scripting.addModule("/ti/drivers/Board");
+const Crypto         = scripting.addModule("/ti/drivers/Crypto");
+const Crypto1        = Crypto.addInstance();
+const DMA            = scripting.addModule("/ti/drivers/DMA");
+const GPIO           = scripting.addModule("/ti/drivers/GPIO");
+const GPIO1          = GPIO.addInstance();
+const GPIO2          = GPIO.addInstance();
+const GPIO3          = GPIO.addInstance();
+const GPIO5          = GPIO.addInstance();
+const GPIO6          = GPIO.addInstance();
+const GPIO7          = GPIO.addInstance();
+const GPIO8          = GPIO.addInstance();
+const GPIO9          = GPIO.addInstance();
+const GPIO10         = GPIO.addInstance();
+const Power          = scripting.addModule("/ti/drivers/Power");
+const SPI            = scripting.addModule("/ti/drivers/SPI");
+const SPI1           = SPI.addInstance();
+const Timer          = scripting.addModule("/ti/drivers/Timer");
+const Timer1         = Timer.addInstance();
+const Timer2         = Timer.addInstance();
+const Timer3         = Timer.addInstance();
+const UART           = scripting.addModule("/ti/drivers/UART", {}, false);
+const UART1          = UART.addInstance();
+const Watchdog       = scripting.addModule("/ti/drivers/Watchdog");
+const Watchdog1      = Watchdog.addInstance();
+const LED            = scripting.addModule("/ti/drivers/apps/LED", {}, false);
+const LED1           = LED.addInstance();
+const SimpleLinkWifi = scripting.addModule("/ti/drivers/net/wifi/SimpleLinkWifi");
+const SlNet          = scripting.addModule("/ti/net/SlNet");
+const SlNet1         = SlNet.addInstance();
+
+/**
+ * Write custom configuration values to the imported modules.
+ */
+Display1.$name      = "CONFIG_Display_0";
+Display1.$hardware  = system.deviceData.board.components.XDS110UART;
+Display1.uart.$name = "CONFIG_UART_0";
+
+ADC1.$name = "CONFIG_ADC_0";
+
+Crypto1.$name = "CONFIG_Crypto_0";
+
+GPIO1.$name           = "slave_select_1";
+GPIO1.mode            = "Output";
+GPIO1.gpioPin.$assign = "boosterpack.13";
+
+GPIO2.$name           = "slave_select_2";
+GPIO2.mode            = "Output";
+GPIO2.gpioPin.$assign = "boosterpack.5";
+
+GPIO3.$name           = "slave_select_3";
+GPIO3.mode            = "Output";
+GPIO3.gpioPin.$assign = "boosterpack.18";
+
+GPIO5.$name = "DEBUG_0";
+GPIO5.mode  = "Output";
+
+GPIO6.$name = "DEBUG_1";
+GPIO6.mode  = "Output";
+
+GPIO7.$name = "DEBUG_2";
+GPIO7.mode  = "Output";
+
+GPIO8.$name = "DEBUG_3";
+GPIO8.mode  = "Output";
+
+GPIO9.$name = "DEBUG_4";
+GPIO9.mode  = "Output";
+
+GPIO10.$name = "DEBUG_5";
+GPIO10.mode  = "Output";
+
+Power.ioRetentionShutdown = ["GRP_1"];
+Power.parkPins.$name      = "ti_drivers_power_PowerCC32XXPins0";
+
+SPI1.$name                    = "CONFIG_SPI_0";
+SPI1.mode                     = "Four Pin SS Active Low";
+SPI1.defaultTxBufferValue     = "0";
+SPI1.spi.$assign              = "SPI0";
+SPI1.spi.sclkPin.$assign      = "boosterpack.7";
+SPI1.spi.misoPin.$assign      = "boosterpack.14";
+SPI1.spi.mosiPin.$assign      = "boosterpack.15";
+SPI1.spi.ssPin.$assign        = "boosterpack.30";
+SPI1.spi.dmaRxChannel.$assign = "UDMA_CH6";
+SPI1.spi.dmaTxChannel.$assign = "UDMA_CH7";
+
+Timer1.$name         = "CONFIG_TIMER_0";
+Timer1.timerType     = "32 Bits";
+Timer1.timer.$assign = "Timer0";
+
+Timer2.$name         = "CONFIG_TIMER_1";
+Timer2.timerType     = "32 Bits";
+Timer2.timer.$assign = "Timer1";
+
+Timer3.$name         = "CONFIG_TIMER_2";
+Timer3.timer.$assign = "Timer2";
+
+UART1.$name              = "motor_driver_uart";
+UART1.uart.txPin.$assign = "boosterpack.4";
+
+Watchdog1.$name            = "CONFIG_WATCHDOG_0";
+Watchdog1.watchdog.$assign = "WATCHDOG0";
+
+LED1.$name     = "CONFIG_LED_0";
+LED1.$hardware = system.deviceData.board.components.LED_RED;
+
+SlNet1.$name  = "CONFIG_SLNET";
+SlNet1.ifName = "CC32xx";
+
+/**
+ * Pinmux solution for unlocked pins/peripherals. This ensures that minor changes to the automatic solver in a future
+ * version of the tool will not impact the pinmux you originally saw.  These lines can be completely deleted in order to
+ * re-solve from scratch.
+ */
+Display1.uart.uart.$suggestSolution       = "UART1";
+Display1.uart.uart.txPin.$suggestSolution = "GP01";
+Display1.uart.uart.rxPin.$suggestSolution = "GP02";
+ADC1.adc.$suggestSolution                 = "ADC0";
+ADC1.adc.adcPin.$suggestSolution          = "boosterpack.2";
+GPIO5.gpioPin.$suggestSolution            = "boosterpack.19";
+GPIO6.gpioPin.$suggestSolution            = "boosterpack.28";
+GPIO7.gpioPin.$suggestSolution            = "boosterpack.26";
+GPIO8.gpioPin.$suggestSolution            = "boosterpack.24";
+GPIO9.gpioPin.$suggestSolution            = "boosterpack.8";
+GPIO10.gpioPin.$suggestSolution           = "boosterpack.27";
+UART1.uart.$suggestSolution               = "UART0";
+UART1.uart.rxPin.$suggestSolution         = "boosterpack.17";
+LED1.gpioPin.gpioPin.$suggestSolution     = "boosterpack.29";
