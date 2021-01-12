@@ -3,7 +3,7 @@
 ECE 4534: Embedded Systems
 
 Contributions:
-catkin_ws/src                         Spencer Buebel, Charles Kelley\n
+catkin_ws/src                         Spencer Buebel, Charles Kelley
 interconnectivity_milestone           Spencer Buebel, Charles Kelley, Michael Han, Christos
 mapping_component                     Spencer Buebel
 rover_component                       Charles Kelley
