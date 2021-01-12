@@ -1,0 +1,35 @@
+<launch>
+
+
+<!-- 
+	<node pkg="move_base" type="move_base" name="move_base" output="screen">
+        <param name="controller_frequency" value="10.0"/>
+        <rosparam file="$(find rover_navigation)/config/costmap_common_params.yaml" command="load" ns="global_costmap" />
+        <rosparam file="$(find rover_navigation)/config/costmap_common_params.yaml" command="load" ns="local_costmap" />
+        <rosparam file="$(find rover_navigation)/config/local_costmap_params.yaml" command="load" />
+        <rosparam file="$(find rover_navigation)/config/global_costmap_params.yaml" command="load" />
+        <rosparam file="$(find rover_navigation)/config/trajectory_planner.yaml" command="load" />
+    </node> -->
+
+
+    <node pkg="rover_navigation" type="nav_goal_setter.py" name="goal_setter" output="screen"/>
+    <node pkg="rover_navigation" type="navigator.py" name="path_planner" output="screen"/>
+
+<!-- 
+    <node pkg="explore_lite" type="explore" name="explore" output="screen">
+    	<param name="robot_base_frame" value="base_link"/>
+    	<param name="costmap_topic" value="/move_base/global_costmap/costmap"/>
+
+    </node> -->
+
+
+
+<!-- 
+	<node pkg="frontier_exploration" type="explore_client" name="explore_client" output="screen"/>
+	<node pkg="frontier_exploration" type="explore_server" name="explore_server" output="screen">
+	    <param name="frequency" type="double" value="1.0"/>
+	    <param name="goal_aliasing" type="double" value="0.5"/>
+	    <rosparam ns="explore_costmap" subst_value="true" file="$(find rover_navigation)/config/exploration.yaml" command="load" />
+	</node>
+ -->
+</launch>
